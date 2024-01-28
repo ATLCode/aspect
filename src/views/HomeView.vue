@@ -1,8 +1,10 @@
 <template>
   <div class="container">
-    <div class="header"><HeadBar /> {{ selectedPage }}</div>
-    <div class="nav"><NavBar :components="components" :selectedPage="selectedPage" /></div>
-    <div class="window"><ComponentDocumentation /></div>
+    <div class="header"><HeadBar /></div>
+    <div class="nav">
+      <NavBar :components="components" :selectedPage="selectedPage" @selectPage="selectPage" />
+    </div>
+    <div class="window"><ComponentDocumentation :selectedPage="selectedPage" /></div>
   </div>
 </template>
 
@@ -38,12 +40,21 @@ const components = {
   },
   menu: { name: 'Menu', content: { tabs: 'Tabs' } },
   media: { name: 'Media', content: {} },
-  misc: { name: 'Misc', content: {} },
-  overlay: { name: 'Overlay', content: { dialog: 'Dialog' } },
-  text: { name: 'Text', content: { subtitle: 'Subtitle', title: 'Title' } }
+  misc: {
+    name: 'Misc',
+    content: {
+      progressCircular: 'Progress Circular',
+      progressLinear: 'Progress Linear'
+    }
+  },
+  overlay: { name: 'Overlay', content: { dialog: 'Dialog' } }
 }
 
+// Page Selection
 const selectedPage = ref('button')
+function selectPage(component: string) {
+  selectedPage.value = component.toLowerCase()
+}
 </script>
 
 <style scoped lang="scss">

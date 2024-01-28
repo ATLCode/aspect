@@ -1,5 +1,5 @@
 <template>
-  <div class="head-container">Aspect</div>
+  <div class="head-container h1">Aspect</div>
 </template>
 
 <script setup lang="ts"></script>
@@ -11,7 +11,5 @@
   display: flex;
   align-items: center;
   padding: 2rem;
-  box-sizing: border-box;
-  font-size: 32px;
 }
 </style>
