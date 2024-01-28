@@ -1,7 +1,38 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url(./fonts/Poppins-Regular.ttf);
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url(./fonts/Montserrat-Regular.ttf);
+}
+
+* {
+  font-family: 'Poppins';
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0px;
   color: var(--text);
 }
 .feather {
   fill: var(--text);
+}
+.h1 {
+  font-size: 2rem;
+}
+.h2 {
+  font-size: 1.5rem;
+}
+.h3 {
+  font-size: 1.25rem;
+}
+.h4 {
+  font-size: 1.1rem;
 }
