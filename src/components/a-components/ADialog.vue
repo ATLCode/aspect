@@ -1,7 +1,9 @@
 <template>
-  <dialog v-if="value" class="dialog" :open="value">
-    <slot>test</slot>
-  </dialog>
+  <div class="dialog-mask" v-if="value" @click="value = !value">
+    <div class="dialog-content" @click.stop>
+      <slot></slot>
+    </div>
+  </div>
 </template>
 <script lang="ts" setup>
 /*
@@ -20,13 +22,24 @@
 const value = defineModel<boolean>()
 </script>
 <style lang="scss" scoped>
-.dialog {
-  height: 80vh;
-  width: 80vw;
-  z-index: 99999;
+.dialog-mask {
+  height: 100vh;
+  width: 100vw;
+  z-index: 100;
   display: flex;
-  background-color: var(--background);
-  position: absolute;
-  border: 1px solid red;
+  justify-content: center;
+  align-items: center;
+  background-color: hsla(0, 0%, 0%, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.dialog-content {
+  background-color: white;
+  color: black;
+  height: 500px;
+  width: 500px;
 }
 </style>

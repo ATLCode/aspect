@@ -1,6 +1,6 @@
 <template>
   <div class="acard" :style="style">
-    <ATitle v-if="props.title">{{ props.title }}</ATitle>
+    <div>{{ props.title }}</div>
     <slot></slot>
   </div>
 </template>
