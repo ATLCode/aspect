@@ -7,8 +7,8 @@
       <ACard>
         {{ dialogOpen }}
         <AButton @click="dialogOpen = !dialogOpen">Open Dialog</AButton>
-        <ADialog :open="dialogOpen">Content Here!</ADialog></ACard
-      >
+        <ADialog v-model="dialogOpen"></ADialog
+      ></ACard>
       <ACard
         ><div>&lt;AButton&gt;Open Dialog&lt;/AButton&gt;</div>
         <div>&lt;ADialog :open="dialogOpen"&gt;Content Here!&lt;/ADialog&gt;</div>
@@ -21,6 +21,7 @@
 import { ref } from 'vue'
 import ACard from '../a-components/ACard.vue'
 import AButton from '../a-components/AButton.vue'
+import ADialog from '../a-components/ADialog.vue'
 
 const dialogOpen = ref(false)
 </script>

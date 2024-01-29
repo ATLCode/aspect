@@ -12,6 +12,7 @@
     <ASelectDocumentation v-show="props.selectedPage === 'select'" />
     <ASpacerDocumentation v-show="props.selectedPage === 'spacer'" />
     <ATabsDocumentation v-show="props.selectedPage === 'tabs'" />
+    <ASliderDocumentation v-show="props.selectedPage === 'slider'" />
   </div>
 </template>
 
@@ -28,6 +29,7 @@ import AProgressLinearDocumentation from './documentation/AProgressLinearDocumen
 import ASelectDocumentation from './documentation/ASelectDocumentation.vue'
 import ASpacerDocumentation from './documentation/ASpacerDocumentation.vue'
 import ATabsDocumentation from './documentation/ATabsDocumentation.vue'
+import ASliderDocumentation from './documentation/ASliderDocumentation.vue'
 
 const props = defineProps(['selectedPage'])
 </script>
