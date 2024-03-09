@@ -1,25 +1,41 @@
 <template>
-  <div class="dialog-mask" v-if="value" @click="value = !value">
-    <div class="dialog-content" @click.stop>
+  <div v-if="value" class="dialog-mask" @click="value = !value">
+    <div class="dialog-content" :style="style" @click.stop>
       <slot></slot>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
-/*
-  const props = defineProps({
-    height: {
-      type: String,
-      default: "",
-    },
-    width: {
-      type: String,
-      default: "",
-    },
-  });
-  */
+import {onMounted, reactive} from 'vue'
 
-const value = defineModel<boolean>()
+const props = defineProps({
+  height: {
+    type: String,
+    default: "500px",
+  },
+  width: {
+    type: String,
+    default: "500px",
+  },
+  fullscreen: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+const style = reactive({
+  height: props.height,
+  width: props.width,
+});
+
+onMounted(() => {
+  if (props.fullscreen) {
+    style.height = "100vh";
+    style.width = "100vw";
+  }
+});
+
+const value = defineModel<boolean>();
 </script>
 <style lang="scss" scoped>
 .dialog-mask {
@@ -39,7 +55,5 @@ const value = defineModel<boolean>()
 .dialog-content {
   background-color: white;
   color: black;
-  height: 500px;
-  width: 500px;
 }
 </style>
